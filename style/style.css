@@ -1,0 +1,291 @@
+@font-face {
+  font-family: 'title';
+  src: url(./fonts/fontawesome-webfont.woff) format("woff");
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,body{
+  position: relative;
+  overscroll-behavior: none;
+}
+
+main{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+}
+
+
+
+
+
+
+#title{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+  font-size:  4em;
+  margin-left: 15%;
+  margin-top: 15%;
+  color: white;
+}
+
+.button{
+  margin-top: 5%;
+  margin-left: 15%;
+  padding: 1.5%;
+  font-size: 100%;
+  border-radius: 2em;
+  background-color: #00FFAD;
+  font-weight: bold;
+  border: none;
+  transition: 0.5s;
+  color: #252F4A;
+
+}
+button:hover{
+  color: white;
+  transition: 0.5s;
+}
+
+.slide:nth-child(1){
+  
+  background-image: linear-gradient(rgba(37, 47, 74, 0.8),rgba(37, 47, 74, 0.8 )),url("../img/fond5.jpg");
+  background-size: cover;
+}
+/*************** container de tout les slides ***********************/
+
+.containerSlide{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transition-duration: 0.8s;
+
+}
+
+/*********************** tout les slides ***************************/
+.slide{
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  overflow: hidden; 
+}
+
+.slider-inner{
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  z-index: 0;
+}
+
+/********************* css des slide de prensentation *****************************/
+.presentation{
+  display: grid;
+  grid-template-areas: 
+  "image titre"
+  "image texte";
+  margin: 0%;
+}
+
+.presentation > .img-non-visible{
+  grid-area: image;
+  width: 50%;
+  height: 60%;
+  margin-left: 30%;
+  align-self: center;
+  position: relative;
+  z-index: 5;
+
+}
+
+.presentation > h2 {
+  grid-area: titre;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 250%;
+  margin: auto;
+  margin-left: 0%;
+  margin-bottom: 20%;
+  position: relative;
+  z-index: 5;
+}
+
+.presentation > p {
+  grid-area: texte;
+  font-size: 100%;
+  margin: auto;
+  margin-left: 0%;
+  margin-top: -10%;
+  width: 85%;
+  position: relative;
+  z-index: 5;
+}
+/***************** class d'annimation ****************************/
+.img-non-visible{
+  opacity: 0;
+  transform: translateX(-25px);
+}
+.img-visible{
+  opacity: 1;
+  transform: translateX(0);
+  transition: 1.5s;
+  position: relative;
+  z-index: 5;
+  
+}
+
+.texte-non-visible{
+  opacity: 0;
+  transform: translateX(+25px);
+}
+
+.texte-visible{
+  position: relative;
+  z-index: 8;
+  opacity: 1;
+  transform: translateX(0);
+  transition: 2s;
+  color: rgb(216, 216, 216);;
+}
+/************ triangle non visible ***************/
+.triangle{
+  position: absolute;
+  width: 25%;
+  height: 0;
+  border-top: 5vh solid transparent;
+  border-left: 0vw solid transparent;
+  border-right: 0vw solid transparent;
+  border-bottom: 90vh solid transparent;
+  color: #00FFAD;
+  transform:translateX(150%);
+  transition: 2s;
+  opacity: 0;
+}
+/*.triangle2{
+  position: absolute;
+  width: 25%;
+  height: 0;
+  border-top: 0vh solid transparent;
+  border-left: 0vw solid transparent;
+  border-right: 0vw solid transparent;
+  border-bottom: 90vh solid  ;
+  color: #00FFAD;
+  /*transform:translateX(1000px);
+  transition: 2s;
+  opacity: 0;
+}
+.triangle-visible{
+  opacity: 0;
+  transform: translateX(0px);
+  transition: 3s;
+}
+.triangle-visible2{
+  opacity: 1;
+  transform: translateX(0);
+  transition: 3s;
+}
+*/
+.presentation:last-child{
+  transform: rotateX(15);
+}
+
+.progress_bar{
+position: fixed;
+background-color: #00FFAD;
+top: 0;
+height: 8px;
+width: 100vw;
+z-index: 9999;
+transition: 1s;
+}
+
+.svg{
+  width: 100%;
+  height: 100%;
+}
+.svg{
+  fill: rgb(216, 216, 216);
+  margin: auto;
+}
+/* ************************** responsive *********************************/
+.slider-inner{
+  background: linear-gradient(rgba(0, 0, 0, 0.8),rgba(2, 2, 2, 0.8)),url("../img/fond1.jpg");
+  background-size: 100%;
+}
+@media (orientation: portrait) and (max-width:1080px) {
+  
+     
+  .presentation{
+    display: grid;
+    grid-template-areas: 
+    "titre"
+    "image"
+    "texte";
+  }
+  .svg{
+    color: white;
+  }
+  .presentation > h2 {
+    font-size: 400%;
+    margin-left: 0%;
+    
+    margin-bottom: 0%;
+    text-align: center;
+    margin: auto;
+  }
+
+  .presentation > p {
+    grid-area: texte;
+    font-size: 250%;
+    margin: auto;
+    margin-left: 0%;
+    margin-top: -2%;
+    width: 90%;
+    margin: auto;
+    position: relative;
+    z-index: 5;
+  }
+  
+  .presentation > .img-non-visible{
+    opacity: 0;
+    transform: translateX(0px);
+    grid-area: image;
+    position: relative;
+    z-index: 5;
+    margin: auto;
+    padding: 0;
+  }
+  .presentation > .img-visible{
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 1.5s;
+    position: relative;
+    z-index: 5;
+    
+  }
+  
+  .texte-non-visible{
+    opacity: 0;
+    transform: translateX(-5px);
+  }
+  
+  .texte-visible{
+    position: relative;
+    z-index: 8;
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 2s;
+    color: rgb(216, 216, 216);
+  }
+
+ 
+}
